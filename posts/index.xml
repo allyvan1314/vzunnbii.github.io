@@ -1,25 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on ALICE GRACE - MY BLOG</title>
-    <link>/posts/</link>
-    <description>Recent content in Posts on ALICE GRACE - MY BLOG</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 12 Apr 2019 09:40:34 +0700</lastBuildDate>
-    
-	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>DTLS</title>
-      <link>/posts/dtls/</link>
-      <pubDate>Fri, 12 Apr 2019 09:40:34 +0700</pubDate>
-      
-      <guid>/posts/dtls/</guid>
-      <description>Verbal thinking Đôi dòng cảm nhận qua cuốn sách &amp;ldquo;Đi tìm lẽ sống&amp;rdquo;  Sống trên đời, có ai chưa từng trải qua khổ đau. Có lẽ, sống mà chưa từng đau khổ, sẽ chẳng thể biết được bản thân may mắn đến thế nào&amp;hellip;
+	<channel>
+		<title>Posts on Hugo Hermit</title>
+		<link>https://example.com/posts/</link>
+		<description>Recent content in Posts on Hugo Hermit</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Fri, 12 Apr 2019 09:40:34 +0700</lastBuildDate>
+		<atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>DTLS</title>
+			<link>https://example.com/posts/dtls/</link>
+			<pubDate>Fri, 12 Apr 2019 09:40:34 +0700</pubDate>
+			
+			<guid>https://example.com/posts/dtls/</guid>
+			<description>Verbal thinking Đôi dòng cảm nhận qua cuốn sách &amp;ldquo;Đi tìm lẽ sống&amp;rdquo;  Sống trên đời, có ai chưa từng trải qua khổ đau. Có lẽ, sống mà chưa từng đau khổ, sẽ chẳng thể biết được bản thân may mắn đến thế nào&amp;hellip;
  Sống để làm gì Bạn có bao giờ tự hỏi bạn sinh ra trên cuộc đời này để làm gì không? Câu hỏi tưởng chừng rất đơn giản, nhưng lại khiến người ta suy ngẫm.</description>
-    </item>
-    
-  </channel>
+			<content type="html"><![CDATA[
+
+<h1 id="verbal-thinking">Verbal thinking</h1>
+
+<h2 id="đôi-dòng-cảm-nhận-qua-cuốn-sách-đi-tìm-lẽ-sống">Đôi dòng cảm nhận qua cuốn sách &ldquo;Đi tìm lẽ sống&rdquo;</h2>
+
+<blockquote>
+<p><em>Sống trên đời, có ai chưa từng trải qua khổ đau. Có lẽ, sống mà chưa từng đau khổ, sẽ chẳng thể biết được bản thân may mắn đến thế nào&hellip;</em></p>
+</blockquote>
+
+<p><img src="https://dablogg.com/wp-content/uploads/2018/08/di-tim-le-song.jpg" alt="alt" /></p>
+
+<h3 id="sống-để-làm-gì">Sống để làm gì</h3>
+
+<p>Bạn có bao giờ tự hỏi bạn sinh ra trên cuộc đời này để làm gì không? Câu hỏi tưởng chừng rất đơn giản, nhưng lại khiến người ta suy ngẫm. Con sâu ăn lá, con cá phải bơi. Nhưng con người thì khác, không ai có mục đích sống giống nhau, và cũng không ai có chung tư tưởng. Chính điều chúng ta hướng tới đó, chính những trăn trở về mục đích của bản thân đó, khiến chúng ta sống chứ không đơn thuần là tồn tại. Đối với những người còn đang loay hoay đi tìm đường đi cho chính mình, hoặc đang lạc lối giữa cuộc đời, cuốn sách Đi tìm lẽ sống có lẽ sẽ giúp được đôi điều.</p>
+]]></content>
+		</item>
+		
+	</channel>
 </rss>

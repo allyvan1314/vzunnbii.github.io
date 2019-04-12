@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ALICE GRACE - MY BLOG</title>
-    <link>/</link>
-    <description>Recent content on ALICE GRACE - MY BLOG</description>
+    <title>Hugo Hermit</title>
+    <link>https://example.com/</link>
+    <description>Recent content on Hugo Hermit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Fri, 12 Apr 2019 09:40:34 +0700</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>DTLS</title>
-      <link>/posts/dtls/</link>
+      <link>https://example.com/posts/dtls/</link>
       <pubDate>Fri, 12 Apr 2019 09:40:34 +0700</pubDate>
       
-      <guid>/posts/dtls/</guid>
+      <guid>https://example.com/posts/dtls/</guid>
       <description>Verbal thinking Đôi dòng cảm nhận qua cuốn sách &amp;ldquo;Đi tìm lẽ sống&amp;rdquo;  Sống trên đời, có ai chưa từng trải qua khổ đau. Có lẽ, sống mà chưa từng đau khổ, sẽ chẳng thể biết được bản thân may mắn đến thế nào&amp;hellip;
  Sống để làm gì Bạn có bao giờ tự hỏi bạn sinh ra trên cuộc đời này để làm gì không? Câu hỏi tưởng chừng rất đơn giản, nhưng lại khiến người ta suy ngẫm.</description>
     </item>
