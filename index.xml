@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo Hermit</title>
-    <link>https://example.com/</link>
-    <description>Recent content on Hugo Hermit</description>
+    <title>Alice Grace - I see through your eyes</title>
+    <link>https://vzunnbii.github.io/</link>
+    <description>Recent content on Alice Grace - I see through your eyes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Fri, 12 Apr 2019 09:40:34 +0700</lastBuildDate>
     
-	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vzunnbii.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>DTLS</title>
-      <link>https://example.com/posts/dtls/</link>
+      <title>Đi tìm lẽ sống</title>
+      <link>https://vzunnbii.github.io/posts/dtls/</link>
       <pubDate>Fri, 12 Apr 2019 09:40:34 +0700</pubDate>
       
-      <guid>https://example.com/posts/dtls/</guid>
+      <guid>https://vzunnbii.github.io/posts/dtls/</guid>
       <description>Verbal thinking Đôi dòng cảm nhận qua cuốn sách &amp;ldquo;Đi tìm lẽ sống&amp;rdquo;  Sống trên đời, có ai chưa từng trải qua khổ đau. Có lẽ, sống mà chưa từng đau khổ, sẽ chẳng thể biết được bản thân may mắn đến thế nào&amp;hellip;
- Sống để làm gì Bạn có bao giờ tự hỏi bạn sinh ra trên cuộc đời này để làm gì không? Câu hỏi tưởng chừng rất đơn giản, nhưng lại khiến người ta suy ngẫm.</description>
+ Lẽ sống Bạn có bao giờ tự hỏi bạn sinh ra trên cuộc đời này để làm gì không? Câu hỏi tưởng chừng rất đơn giản, nhưng lại khiến người ta suy ngẫm.</description>
+    </item>
+    
+    <item>
+      <title>About my blog</title>
+      <link>https://vzunnbii.github.io/about/readme/</link>
+      <pubDate>Fri, 12 Apr 2019 09:39:58 +0700</pubDate>
+      
+      <guid>https://vzunnbii.github.io/about/readme/</guid>
+      <description>Chào bạn. Đây là blog của mình.
+Mình 21 tuổi, cái tuổi của thanh xuân, của sức sống, của tìm tòi và khám phá.
+Ai cũng có một con đường riêng cho mình. Mình đang trên đường đi tìm con đường ấy. Và blog này ghi lại hành trình bước chân vào con đường riêng dành cho chính mình. Nó có thể không hay ho, không thú vị như người khác, nhưng nó là mình.</description>
     </item>
     
   </channel>

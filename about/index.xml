@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on Alice Grace - I see through your eyes</title>
+    <link>https://vzunnbii.github.io/about/</link>
+    <description>Recent content in Abouts on Alice Grace - I see through your eyes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Fri, 12 Apr 2019 09:39:58 +0700</lastBuildDate>
+    
+	<atom:link href="https://vzunnbii.github.io/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About my blog</title>
+      <link>https://vzunnbii.github.io/about/readme/</link>
+      <pubDate>Fri, 12 Apr 2019 09:39:58 +0700</pubDate>
+      
+      <guid>https://vzunnbii.github.io/about/readme/</guid>
+      <description>Chào bạn. Đây là blog của mình.
+Mình 21 tuổi, cái tuổi của thanh xuân, của sức sống, của tìm tòi và khám phá.
+Ai cũng có một con đường riêng cho mình. Mình đang trên đường đi tìm con đường ấy. Và blog này ghi lại hành trình bước chân vào con đường riêng dành cho chính mình. Nó có thể không hay ho, không thú vị như người khác, nhưng nó là mình.</description>
+    </item>
+    
+  </channel>
+</rss>
