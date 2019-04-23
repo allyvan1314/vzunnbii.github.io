@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>system thingking report on Alice Grace - I see through your eyes</title>
+    <link>https://vzunnbii.github.io/tags/system-thingking-report/</link>
+    <description>Recent content in system thingking report on Alice Grace - I see through your eyes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 22 Apr 2019 15:15:45 +0700</lastBuildDate>
+    
+	<atom:link href="https://vzunnbii.github.io/tags/system-thingking-report/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Report System thinking</title>
+      <link>https://vzunnbii.github.io/posts/report_st/</link>
+      <pubDate>Mon, 22 Apr 2019 15:15:45 +0700</pubDate>
+      
+      <guid>https://vzunnbii.github.io/posts/report_st/</guid>
+      <description>Mục lục  CAP
+1.1. Định lý CAP
+1.2. Khái niệm eventualy consistency
+ Throughtput - Latency
+ Phương pháp scale database (My SQL)
+ Task queue và Message queue
+  
+1. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&amp;hellip; để hoàn thành tác vụ trong thời gian chấp nhận được.</description>
+    </item>
+    
+  </channel>
+</rss>

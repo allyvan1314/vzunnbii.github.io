@@ -6,8 +6,107 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Tue, 16 Apr 2019 13:03:53 +0700</lastBuildDate>
+		<lastBuildDate>Mon, 22 Apr 2019 15:15:45 +0700</lastBuildDate>
 		<atom:link href="https://vzunnbii.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Report System thinking</title>
+			<link>https://vzunnbii.github.io/posts/report_st/</link>
+			<pubDate>Mon, 22 Apr 2019 15:15:45 +0700</pubDate>
+			
+			<guid>https://vzunnbii.github.io/posts/report_st/</guid>
+			<description>Mục lục  CAP
+1.1. Định lý CAP
+1.2. Khái niệm eventualy consistency
+ Throughtput - Latency
+ Phương pháp scale database (My SQL)
+ Task queue và Message queue
+  
+1. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&amp;hellip; để hoàn thành tác vụ trong thời gian chấp nhận được.</description>
+			<content type="html"><![CDATA[
+
+<h2 id="mục-lục">Mục lục</h2>
+
+<ol>
+<li><p><a href="#CAP">CAP</a></p>
+
+<p>1.1. <a href="#DL_CAP">Định lý CAP</a></p>
+
+<p>1.2. <a href="#eventualy">Khái niệm eventualy consistency</a></p></li>
+
+<li><p><a href="#throughput">Throughtput - Latency</a></p></li>
+
+<li><p><a href="#scale_db">Phương pháp scale database (My SQL)</a></p></li>
+
+<li><p><a href="#task_message">Task queue và Message queue</a></p></li>
+</ol>
+
+<p><a name="CAP"></a></p>
+
+<h2 id="1-cap">1. CAP</h2>
+
+<p>Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&hellip; để hoàn thành tác vụ trong thời gian chấp nhận được. Để xử lý được luồng công việc ngày một lớn, cần phải sử dụng thêm các sản phẩn phần cứng, khi đó sẽ có nhiều bất cập liên quan đến việc đồng bộ và họat động song song giữa các thành phần của hệ thống. Và đây chính là lúc định lý CAP nhập cuộc.</p>
+
+<p>Định lý CAP nêu rõ rằng, trong một hệ thống được phân bổ (một tập hợp các nodes có liên kết chia sẻ dữ liệu với nhau), bạn chỉ có thể đảm bảo hai trong ba ràng buộc trên một cặp đọc/ghi sau đây: Tính nhất quán, Tính sẵn sàng và Dung sai phân mảnh. Tuy nhiên không có hệ thống nào có thể đạt được cả 3 yếu tố trên và bắt buộc phải lựa chọn dựa trên các thuộc tính của hệ thống.</p>
+
+<p><a name = "DL_CAP"></a></p>
+
+<h3 id="1-1-định-lý-cap">1.1. Định lý CAP</h3>
+
+<p>C - Consistency - tính nhất quán: mọi yêu cầu đọc sẽ được trả về kết quả ghi gần nhất hoặc thông báo lỗi.</p>
+
+<p>A - Availability - tính sẵn sàng: mọi yêu cầu đều nhận được kết quả, không đảm bảo sẽ nhận được kết quả mới nhất của thông tin.</p>
+
+<p>P - Partition tolenrance - dung sai phân mảnh: hệ thống vẫn tiếp tục hoạt động kể cả khi có lỗi kết nối mạng giữa một số nodes.</p>
+
+<ul>
+<li>Một hệ thống mạng thì rất dễ gặp lỗi, vì vậy bạn cần đảm bảo hệ thống vẫn hoạt động dù có một số vùng có kết nối yếu. Do đó bạn cần lựa chọn giữa tính nhất quán và tính sẵn sàng dựa trên tính chất của phần mềm.</li>
+</ul>
+
+<p><a name = "Eventualy"></a></p>
+
+<h3 id="1-2-khái-niệm-eventualy-consistency">1.2. Khái niệm eventualy consistency</h3>
+
+<p>Với vô số bản copy của cũng một dữ liệu, vấn đề phải đối mặt là làm sao đồng bộ chúng để mọi người dùng có sự nhất quán về góc nhìn với dữ liệu.</p>
+
+<ul>
+<li>Weak consistency</li>
+</ul>
+
+<p>Đồng bộ yếu: Sau khi có cập nhật về thông tin, người dùng chỉ đọc có thể sẽ thấy hoặc không thấy phiên bản cập nhật của dữ liệu. Dữ liệu trên hệ thống sẽ được lưu dưới vùng nhớ tạm. Tính đồng bộ yếu thường được sử dụng trong các tác vụ sử dụng thời gian thực như VoIP, gọi video, game online nhiều người chơi. Khi có lỗi mất kết nối/kết nối yếu xảy ra, người dùng sẽ bị mất những thông tin được truyền đi trong thời gian xảy ra lỗi.</p>
+
+<ul>
+<li>Eventual consistency</li>
+</ul>
+
+<p>Đồng bộ cuối cùng: Là một dạng của đồng bộ yếu, chỉ khác là cuối cùng thông tin vẫn được cập nhật. Trong thời gian đồng bộ, người dùng chỉ đọc vẫn sẽ thấy được những dữ liệu cũ. Sau khi hoàn tất quá trình đồng bộ, mọi yêu cầu đọc đều sẽ nhận được kết quả là phiên bản mới nhất của thông tin.</p>
+
+<p><a name = "throughput"></a></p>
+
+<h2 id="2-throughput-latency">2. Throughput - Latency</h2>
+
+<ul>
+<li><p>Latency: Thời gian cần thiết để hoàn thành 1 tác vụ hoặc để tạo ra một kết quả.</p></li>
+
+<li><p>Throughput: Số tác vụ hoặc kết quả trong một đơn vị thời gian.</p></li>
+</ul>
+
+<p>Ví dụ: Một dây chuyền sản xuất cần 8 giờ để hoàn thành 1 chiếc xe hơi. Trong một ngày nhà máy đó sản xuất được 120 chiếc xe.</p>
+
+<ul>
+<li>Latency: 8 giờ</li>
+<li>Throughput: 120 xe/ngày hay 5 xe/giờ</li>
+</ul>
+
+<p><a name = "scale_db"></a></p>
+
+<h2 id="3-phương-pháp-scale-database-my-sql">3. Phương pháp scale database (My SQL)</h2>
+
+<p><a name = "task_message"></a></p>
+
+<h2 id="4-task-queue-và-message-queue">4. Task queue và Message queue</h2>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Tâm sự mỏng</title>

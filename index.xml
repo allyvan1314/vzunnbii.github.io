@@ -7,10 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 16 Apr 2019 13:03:53 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 22 Apr 2019 15:15:45 +0700</lastBuildDate>
     
 	<atom:link href="https://vzunnbii.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Report System thinking</title>
+      <link>https://vzunnbii.github.io/posts/report_st/</link>
+      <pubDate>Mon, 22 Apr 2019 15:15:45 +0700</pubDate>
+      
+      <guid>https://vzunnbii.github.io/posts/report_st/</guid>
+      <description>Mục lục  CAP
+1.1. Định lý CAP
+1.2. Khái niệm eventualy consistency
+ Throughtput - Latency
+ Phương pháp scale database (My SQL)
+ Task queue và Message queue
+  
+1. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&amp;hellip; để hoàn thành tác vụ trong thời gian chấp nhận được.</description>
+    </item>
     
     <item>
       <title>Tâm sự mỏng</title>
