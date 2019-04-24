@@ -9,46 +9,46 @@
 	<meta name="msapplication-TileColor" content="#494f5c">
 
 <meta itemprop="name" content="Report System thinking">
-<meta itemprop="description" content="Mục lục  CAP
-1.1. Định lý CAP
-1.2. Khái niệm eventualy consistency
- Throughtput - Latency
- Phương pháp scale database (My SQL)
- Task queue và Message queue
-  
-1. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&hellip; để hoàn thành tác vụ trong thời gian chấp nhận được.">
+<meta itemprop="description" content="Mục lục I. CAP
+ Định lý CAP
+ Khái niệm eventualy consistency
+  II. Throughtput - Latency
+III. Phương pháp scale database (My SQL)
+IV. Task queue và Message queue
+
+I. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&hellip; để hoàn thành tác vụ trong thời gian chấp nhận được.">
 
 
 <meta itemprop="datePublished" content="2019-04-22T15:15:45&#43;07:00" />
 <meta itemprop="dateModified" content="2019-04-22T15:15:45&#43;07:00" />
-<meta itemprop="wordCount" content="629">
+<meta itemprop="wordCount" content="2343">
 
 
 
 <meta itemprop="keywords" content="system thingking report," />
 <meta property="og:title" content="Report System thinking" />
-<meta property="og:description" content="Mục lục  CAP
-1.1. Định lý CAP
-1.2. Khái niệm eventualy consistency
- Throughtput - Latency
- Phương pháp scale database (My SQL)
- Task queue và Message queue
-  
-1. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&hellip; để hoàn thành tác vụ trong thời gian chấp nhận được." />
+<meta property="og:description" content="Mục lục I. CAP
+ Định lý CAP
+ Khái niệm eventualy consistency
+  II. Throughtput - Latency
+III. Phương pháp scale database (My SQL)
+IV. Task queue và Message queue
+
+I. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&hellip; để hoàn thành tác vụ trong thời gian chấp nhận được." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vzunnbii.github.io/posts/report_st/" />
 <meta property="article:published_time" content="2019-04-22T15:15:45&#43;07:00"/>
 <meta property="article:modified_time" content="2019-04-22T15:15:45&#43;07:00"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Report System thinking"/>
-<meta name="twitter:description" content="Mục lục  CAP
-1.1. Định lý CAP
-1.2. Khái niệm eventualy consistency
- Throughtput - Latency
- Phương pháp scale database (My SQL)
- Task queue và Message queue
-  
-1. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&hellip; để hoàn thành tác vụ trong thời gian chấp nhận được."/>
+<meta name="twitter:description" content="Mục lục I. CAP
+ Định lý CAP
+ Khái niệm eventualy consistency
+  II. Throughtput - Latency
+III. Phương pháp scale database (My SQL)
+IV. Task queue và Message queue
+
+I. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&hellip; để hoàn thành tác vụ trong thời gian chấp nhận được."/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -99,23 +99,23 @@
 
 <h2 id="mục-lục">Mục lục<a href="#mục-lục" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
+<p>I. <a href="#CAP">CAP</a></p>
+
 <ol>
-<li><p><a href="#CAP">CAP</a></p>
+<li><p><a href="#DL_CAP">Định lý CAP</a></p></li>
 
-<p>1.1. <a href="#DL_CAP">Định lý CAP</a></p>
-
-<p>1.2. <a href="#eventualy">Khái niệm eventualy consistency</a></p></li>
-
-<li><p><a href="#throughput">Throughtput - Latency</a></p></li>
-
-<li><p><a href="#scale_db">Phương pháp scale database (My SQL)</a></p></li>
-
-<li><p><a href="#task_message">Task queue và Message queue</a></p></li>
+<li><p><a href="#eventualy">Khái niệm eventualy consistency</a></p></li>
 </ol>
+
+<p>II. <a href="#throughput">Throughtput - Latency</a></p>
+
+<p>III. <a href="#scale_db">Phương pháp scale database (My SQL)</a></p>
+
+<p>IV. <a href="#task_message">Task queue và Message queue</a></p>
 
 <p><a name="CAP"></a></p>
 
-<h2 id="1-cap">1. CAP<a href="#1-cap" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h1 id="i-cap">I. CAP<a href="#i-cap" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
 <p>Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&hellip; để hoàn thành tác vụ trong thời gian chấp nhận được. Để xử lý được luồng công việc ngày một lớn, cần phải sử dụng thêm các sản phẩn phần cứng, khi đó sẽ có nhiều bất cập liên quan đến việc đồng bộ và họat động song song giữa các thành phần của hệ thống. Và đây chính là lúc định lý CAP nhập cuộc.</p>
 
@@ -123,7 +123,7 @@
 
 <p><a name = "DL_CAP"></a></p>
 
-<h3 id="1-1-định-lý-cap">1.1. Định lý CAP<a href="#1-1-định-lý-cap" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h2 id="1-định-lý-cap">1. Định lý CAP<a href="#1-định-lý-cap" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <p>C - Consistency - tính nhất quán: mọi yêu cầu đọc sẽ được trả về kết quả ghi gần nhất hoặc thông báo lỗi.</p>
 
@@ -137,7 +137,7 @@
 
 <p><a name = "Eventualy"></a></p>
 
-<h3 id="1-2-khái-niệm-eventualy-consistency">1.2. Khái niệm eventualy consistency<a href="#1-2-khái-niệm-eventualy-consistency" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h2 id="2-khái-niệm-eventualy-consistency">2. Khái niệm eventualy consistency<a href="#2-khái-niệm-eventualy-consistency" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <p>Với vô số bản copy của cũng một dữ liệu, vấn đề phải đối mặt là làm sao đồng bộ chúng để mọi người dùng có sự nhất quán về góc nhìn với dữ liệu.</p>
 
@@ -155,7 +155,7 @@
 
 <p><a name = "throughput"></a></p>
 
-<h2 id="2-throughput-latency">2. Throughput - Latency<a href="#2-throughput-latency" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h1 id="ii-throughput-latency">II. Throughput - Latency<a href="#ii-throughput-latency" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
 <ul>
 <li><p>Latency: Thời gian cần thiết để hoàn thành 1 tác vụ hoặc để tạo ra một kết quả.</p></li>
@@ -172,7 +172,130 @@
 
 <p><a name = "scale_db"></a></p>
 
-<h2 id="3-phương-pháp-scale-database-my-sql">3. Phương pháp scale database (My SQL)<a href="#3-phương-pháp-scale-database-my-sql" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h1 id="iii-phương-pháp-scale-database-my-sql">III. Phương pháp scale database (My SQL)<a href="#iii-phương-pháp-scale-database-my-sql" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<h2 id="1-tại-sao-cần-scale-database">1. Tại sao cần scale Database?<a href="#1-tại-sao-cần-scale-database" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Với ứng dụng web có traffic lớn thì việc scale là không thể tránh khỏi. Scale thì có thể tiến hành trên nhiều tầng, như tầng app, tầng db. Database là một hệ thống quan trọng và là một dịch vụ xương sống giúp toàn bộ hệ thống hoạt động, do đó, nó cũng trở thành điểm yếu trong quá trình mở rộng hệ thống. Khi mở rộng hệ thống, lượng truy cập vào các web server sẽ tăng lên, kéo theo các kết nối từ web server đến database sẽ tăng lên và khiến database quá tải và nó trở thành điểm yếu của toàn hệ thống.</p>
+
+<h2 id="2-một-số-phương-pháp-scale-database-áp-dụng-mysql">2. Một số phương pháp scale database (áp dụng MySQL)<a href="#2-một-số-phương-pháp-scale-database-áp-dụng-mysql" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<h3 id="2-1-mysql-replication">2.1. MySQL Replication<a href="#2-1-mysql-replication" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<h4 id="2-1-1-giới-thiệu">2.1.1. Giới thiệu<a href="#2-1-1-giới-thiệu" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<p>Right tool for right job. Trước tiên phải hiểu là MySQL Replication không phải là giải pháp giải quyết mọi bài toán về quá tải hệ thống cơ sở dữ liệu. Để mở rộng một hệ thống ta có hai phương pháp mở rộng là scale up và scale out. Bắt đầu với 1 máy chủ thì hai phương pháp trên được diễn giải như sau:</p>
+
+<ul>
+<li><p>Scale up có nghĩa là với một máy chủ ta làm cách nào đó để nó có thể phục vụ nhiều hơn số lượng kết nối, truy vấn. Nghĩa là giá trị 1/(số kết nối phục vụ) càng nhỏ thì càng tốt. Để đạt được mục đích này thì có 2 phương pháp:</p>
+
+<ul>
+<li>Tăng phần cứng lên cho máy chủ. Nghĩa là với CPU là 4 core, RAM là 8 GB phục vụ được 500 truy vấn thì giờ ta tăng CPU lên 24 core, RAM tăng lên 32GB -&gt; máy chủ có thể phục vụ được số lượng kết nối truy vấn nhiều hơn.</li>
+<li>Optimize ứng dụng, câu truy vấn. Ví dụ với câu truy vấn lấy dữ liệu tốn 5s để lấy được dữ liệu, sau đó mới trả lại tài nguyên cho hệ thống phục vụ các truy vấn khác. Máy chủ có thể đồng thời phục vụ 500 truy vấn dạng như vậy thì nếu ta tối ưu để truy vấn lấy dữ liệu chỉ tốn 1s =&gt; Máy chủ có thể phục vụ đồng thời nhiều truy vấn hơn.</li>
+</ul></li>
+
+<li><p>Scale out là giải pháp tăng số lượng server và dùng các giải pháp load-balacer để phân phối truy vấn ra nhiều server. Ví dụ bạn có 1 server có khả năng phục vụ 500 truy vấn. Nếu ta dựng thêm 5 server nữa có cấu hình tương tự, đặt thêm một LB phía trước để phân phối thì có khả năng hệ thống có thể phục vụ đc 5x500 truy vấn đồng thời.</p></li>
+</ul>
+
+<p>MySQL Replication là một giải pháp scale out (tăng số lượng instance MySQL) nhưng không phải bài toán nào cũng dùng được. Các bài toán mà MySQL Replication sẽ giải quyết tốt:</p>
+
+<ul>
+<li><p><strong>Scale Read</strong></p>
+
+<ul>
+<li>Scale Read thường gặp ở các ứng dụng mà số truy vấn đọc dữ liệu nhiều hơn ghi, tỉ lệ read/write có thể <sup>80</sup>&frasl;<sub>20</sub> hoặc hơn. Các ứng dụng thường gặp là báo, trang tin tức.</li>
+<li>Với scale read ta sẽ chỉ có một Master instance phục vụ cho việc đọc/ghi dữ liệu. Có thể có một hoặc nhiều Slave instance chỉ phục vụ cho việc đọc dữ liệu.</li>
+<li>Một số ứng dụng write nhiều (thương mại điện tử) cũng có sử dụng MySQL Replication để scale out hệ thống.</li>
+</ul></li>
+
+<li><p><strong>Data Report</strong></p>
+
+<ul>
+<li>Một số hệ thống cho phép một số người (leader, manager, người làm report, thống kê, data) truy cập vào dữ liệu trên production phục vụ cho công việc của họ. Việc chọc thẳng vào data production sẽ rất nguy hiểm vì:</li>
+<li>Vô tình chỉnh sửa làm sai lệnh dữ liệu (nếu có quyền insert, update)</li>
+<li>Vô tình thực thi các câu truy vấn tốn nhiều tài nguyên, thời gian truy vấn dài làm treo hệ thống</li>
+<li>Việc setup một máy chủ làm data report (application cũng sẽ không kết nối tới server này) làm giảm thiểu 2 rủi ro trên</li>
+</ul></li>
+
+<li><p><strong>Real time backup</strong></p>
+
+<ul>
+<li>Với cơ sở dữ liệu lớn việc backup không thể thực hiện thường xuyên được (hàng giờ, hàng phút). Với các ứng dụng giao dịch tài chính, thanh toán, TMDT nếu bị mất dữ liệu 1 giờ, 1 ngày thì thiệt hại sẽ rất lớn (máy chủ chính tự dưng bị hỏng). Real time backup là một giải pháp bổ sung cho offline backup, chạy đồng thời cả 2 phương pháp này để bảo đảm sự an toàn cho dữ liệu.</li>
+</ul></li>
+</ul>
+
+<h4 id="2-1-2-cách-thức-hoạt-động">2.1.2. Cách thức hoạt động<a href="#2-1-2-cách-thức-hoạt-động" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<h5 id="2-1-2-1-một-số-mô-hình-hoạt-động">2.1.2.1. Một số mô hình hoạt động<a href="#2-1-2-1-một-số-mô-hình-hoạt-động" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+
+<p><center> <img src="rep_1.png"> </center></p>
+
+<p>Với cả hai mô hình ta luôn chỉ có 1 Master database phục vụ cho Write dữ liệu, có thể có một hoặc nhiều Slave database. Tùy từng mô hình ta có thể cấu hình mỗi web node connect vào một Slave DB tương ứng hoặc có thể dùng một LB đặt trước cụm Slave để LB tự động phân phối connection vào từng Slave DB theo thuật toán của LB.</p>
+
+<p><center> <img src="rep_2.png"> </center></p>
+
+<h5 id="2-1-2-2-cách-thức-hoạt-động">2.1.2.2. Cách thức hoạt động<a href="#2-1-2-2-cách-thức-hoạt-động" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+
+<p>Trên Master:</p>
+
+<ul>
+<li>Các kết nối từ web app tới Master DB sẽ mở một Session_Thread khi có nhu cầu ghi dữ liệu. Session_Thread sẽ ghi các statement SQL vào một file binlog (ví dụ với format của binlog là statement-based hoặc mix). Binlog được lưu trữ trong data_dir (cấu hình my.cnf) và có thể được cấu hình các thông số như kích thước tối đa bao nhiêu, lưu lại trên server bao nhiêu ngày.</li>
+<li>Master DB sẽ mở một Dump_Thread và gửi binlog tới cho I/O_Thread mỗi khi I/O_Thread từ Slave DB yêu cầu dữ liệu.</li>
+</ul>
+
+<p>Trên Slave:</p>
+
+<ul>
+<li>Trên mỗi Slave DB sẽ mở một I/O_Thread kết nối tới Master DB thông qua network, giao thức TCP (với MySQL 5.5 replication chỉ hỗ trợ Single_Thread nên mỗi Slave DB sẽ chỉ mở duy nhất một kết nối tới Master DB, các phiên bản sau 5.6, 5.7 hỗ trợ mở đồng thời nhiều kết nối hơn) để yêu cầu binlog.</li>
+<li>Sau khi Dump_Thread gửi binlog tới I/O_Thead, I/O_Thread sẽ có nhiệm vụ đọc binlog này và ghi vào relaylog.</li>
+<li>Đồng thời trên Slave sẽ mở một SQL_Thread, SQL_Thread có nhiệm vụ đọc các event từ relaylog và apply các event đó vào Slave =&gt; quá trình replication hoàn thành.</li>
+</ul>
+
+<h3 id="2-2-shard-mysql">2.2. Shard MySQL<a href="#2-2-shard-mysql" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>Sharding là một tiến trình lưu giữ các bản ghi dữ liệu qua nhiều thiết bị để đáp ứng yêu cầu về sự gia tăng dữ liệu. Khi kích cỡ của dữ liệu tăng lên, một thiết bị đơn ( 1 database hay 1 bảng) không thể đủ để lưu giữ dữ liệu. Sharding giải quyết vấn đề này với việc mở rộng phạm vi theo bề ngang (horizontal scaling). Với Sharding, bạn bổ sung thêm nhiều thiết bị để hỗ trợ cho việc gia tăng dữ liệu và các yêu cầu của các hoạt động đọc và ghi.</p>
+
+<p>Đối với những hệ thống có dữ liệu rất lớn thì đến một lúc nào đó, số dũ liệu trong bảng lên đến hàng triệu, việc query trở nên vô cùng ì ạch và tốn rất nhiều dung lượng bộ nhớ. Kỹ thuật sharding giúp ta giải quyết vấn đề này một cách nhanh chóng bằng cách chia nhỏ bảng hay db ra làm các phần khác nhau, chúng có cấu trúc dữ liệu giống nhau nhưng lưu các dữ liệu khác nhau để giảm tải thay cho việc chỉ dùng 1 bảng.</p>
+
+<p>Ví dụ:</p>
+
+<p><strong>Cách Pinterest scale MySQL của họ</strong></p>
+
+<p>a. Why?</p>
+
+<p>Trước thời điểm tiến hành &ldquo;cải tổ&rdquo;, Pinterest có:</p>
+
+<ul>
+<li>Hơn 50 tỷ pin được pin vào khoảng 1 tỷ board (mỗi user có nhiều boards, mỗi board có nhiều pins), và có nhiều thông tin râu ria như repin, like pin&hellip;</li>
+<li>Họ đã dùng một số công nghệ NoSQL, và tất nhiên cả mô hình master-slave kinh điển nữa, nhưng tất cả vẫn ko đáp ứng đủ với lượng dữ liệu trên. Cái thì break, cái thì lỗi.</li>
+</ul>
+
+<p>Vì vậy họ phải nghĩ tới 1 phương án mới, với các tiêu chí sau:</p>
+
+<ul>
+<li>Hệ thống phải ổn định, dễ vận hành, và dễ scale.
+Mọi thông tin mà Pinner (có thể hiểu là user) tạo ra phải đảm bảo có thể được accesss mọi lúc.</li>
+<li>Support việc query N pins trên một board đảm bảo theo 1 thứ tự cho trước (theo thời gian tạo pin hoặc theo 1 tiêu chí mà user đề ra)</li>
+<li>Nếu phải update, thì việc update phải là đơn giản nhất có thể.</li>
+</ul>
+
+<p>Một số suy luận và định hướng mà họ nhận ra khi tiến hành sharding:</p>
+
+<ul>
+<li>Một khi đã shard, họ sẽ ko thể sử dụng joins, foreign keys, hoặc index một cách global được. (Vì data đã được chia thành các &ldquo;cục&rdquo; nhỏ, isolate với nhau). Tất nhiên, họ vẫn có thể sử dụng các chức năng này với data cục bộ.</li>
+<li>Load balancing vẫn là cần thiết sau khi shard. Không để trường hợp node này quá đầy, node kia lại ko có gì. Những nodes cần có tính ổn định cao.</li>
+<li>Một khi đã shard, thì ko sờ vào data ở slave nữa. Mọi action read/write đều tiến hành trên master hết.</li>
+<li>Cần 1 giải thuật đơn giản khi tạo UUID cho tất cả các records của họ.
+Và họ quyết định sharding hệ thống MySQL theo cách của họ như dưới đây.</li>
+</ul>
+
+<p>b. How?</p>
+
+<p>// Tại sao họ lại chọn MySQL mà ko phải nền tảng khác? Anh kỹ sư có nói trong bài viết là: <strong>Đừng đú theo công nghệ làm gì, hãy cứ right tool for right job</strong> :D</p>
+
+<p>Đầu tiên, họ bắt đầu với 8 con EC2, mỗi con EC2 (chạy một instance MySQL) lại có 1 con EC2 khác đi kèm, tạo thành 1 cặp với cấu hình master-master (ko phải là master-slave nữa), nhằm mục đích con master ko bị mất dữ liệu ngay cả khi nó bị tèo.</p>
+
+<p>// Nếu con master1 bị tèo, thì lập tức con đi kèm được cho lên làm master luôn. Sau khi con master1 khôi phục thì vai diễn lại đổi thành master1 làm backup cho con đi kèm, cứ như vậy &hellip;</p>
 
 <p><a name = "task_message"></a></p>
 
@@ -184,7 +307,7 @@
 				<p>
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://vzunnbii.github.io/tags/system-thingking-report">system thingking report</a></span>
 				</p>
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>629 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>2343 Words</p>
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-04-22 15:15 &#43;0700</p>
 			</footer>
 		</article>
