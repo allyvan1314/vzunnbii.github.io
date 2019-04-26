@@ -19,11 +19,13 @@
       
       <guid>https://vzunnbii.github.io/posts/report_st/</guid>
       <description>Mục lục I. CAP
- Định lý CAP
- Khái niệm eventualy consistency
-  II. Throughtput - Latency
+ Định lý CAP Khái niệm eventualy consistency  II. Throughtput - Latency
 III. Phương pháp scale database (My SQL)
-IV. Task queue và Message queue
+ Tại sao cần scale database? Một số phương pháp scale database (áp dụng MySQL)
+ MySQL Replication MySQL Shard
+Cách Pinterest scale database của họ
+   IV. Task queue và Message queue
+ Message queue Task queue  V. Credit
 
 I. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&amp;hellip; để hoàn thành tác vụ trong thời gian chấp nhận được.</description>
     </item>

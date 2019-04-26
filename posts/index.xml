@@ -16,32 +16,54 @@
 			
 			<guid>https://vzunnbii.github.io/posts/report_st/</guid>
 			<description>Mục lục I. CAP
- Định lý CAP
- Khái niệm eventualy consistency
-  II. Throughtput - Latency
+ Định lý CAP Khái niệm eventualy consistency  II. Throughtput - Latency
 III. Phương pháp scale database (My SQL)
-IV. Task queue và Message queue
+ Tại sao cần scale database? Một số phương pháp scale database (áp dụng MySQL)
+ MySQL Replication MySQL Shard
+Cách Pinterest scale database của họ
+   IV. Task queue và Message queue
+ Message queue Task queue  V. Credit
 
 I. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần phải được mở rộng, thêm vào các nguồn lực cần thiết như máy tính, bộ nhớ,&amp;hellip; để hoàn thành tác vụ trong thời gian chấp nhận được.</description>
 			<content type="html"><![CDATA[
 
-<h2 id="mục-lục">Mục lục</h2>
+<h1 id="mục-lục">Mục lục</h1>
 
 <p>I. <a href="#CAP">CAP</a></p>
 
 <ol>
-<li><p><a href="#DL_CAP">Định lý CAP</a></p></li>
-
-<li><p><a href="#eventualy">Khái niệm eventualy consistency</a></p></li>
+<li><a href="#DL_CAP">Định lý CAP</a></li>
+<li><a href="#eventualy">Khái niệm eventualy consistency</a></li>
 </ol>
 
 <p>II. <a href="#throughput">Throughtput - Latency</a></p>
 
 <p>III. <a href="#scale_db">Phương pháp scale database (My SQL)</a></p>
 
+<ol>
+<li><a href="#why_1">Tại sao cần scale database?</a></li>
+
+<li><p><a href="#pp">Một số phương pháp scale database (áp dụng MySQL)</a></p>
+
+<ol>
+<li><a href="#rep">MySQL Replication</a></li>
+
+<li><p><a href="#shard">MySQL Shard</a></p>
+
+<p><a href="#pin">Cách Pinterest scale database của họ</a></p></li>
+</ol></li>
+</ol>
+
 <p>IV. <a href="#task_message">Task queue và Message queue</a></p>
 
-<p><a name="CAP"></a></p>
+<ol>
+<li><a href="#mess">Message queue</a></li>
+<li><a href="#task">Task queue</a></li>
+</ol>
+
+<p>V. <a href="#credit">Credit</a></p>
+
+<p><a name = "CAP"></a></p>
 
 <h1 id="i-cap">I. CAP</h1>
 
@@ -59,9 +81,8 @@ I. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần ph�
 
 <p>P - Partition tolenrance - dung sai phân mảnh: hệ thống vẫn tiếp tục hoạt động kể cả khi có lỗi kết nối mạng giữa một số nodes.</p>
 
-<ul>
-<li>Một hệ thống mạng thì rất dễ gặp lỗi, vì vậy bạn cần đảm bảo hệ thống vẫn hoạt động dù có một số vùng có kết nối yếu. Do đó bạn cần lựa chọn giữa tính nhất quán và tính sẵn sàng dựa trên tính chất của phần mềm.</li>
-</ul>
+<pre><code>Một hệ thống mạng thì rất dễ gặp lỗi, vì vậy bạn cần đảm bảo hệ thống vẫn hoạt động dù có một số vùng có kết nối yếu. Do đó bạn cần lựa chọn giữa tính nhất quán và tính sẵn sàng dựa trên tính chất của phần mềm.
+</code></pre>
 
 <p><a name = "Eventualy"></a></p>
 
@@ -102,11 +123,17 @@ I. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần ph�
 
 <h1 id="iii-phương-pháp-scale-database-my-sql">III. Phương pháp scale database (My SQL)</h1>
 
+<p><a name = "why_1"></a></p>
+
 <h2 id="1-tại-sao-cần-scale-database">1. Tại sao cần scale Database?</h2>
 
 <p>Với ứng dụng web có traffic lớn thì việc scale là không thể tránh khỏi. Scale thì có thể tiến hành trên nhiều tầng, như tầng app, tầng db. Database là một hệ thống quan trọng và là một dịch vụ xương sống giúp toàn bộ hệ thống hoạt động, do đó, nó cũng trở thành điểm yếu trong quá trình mở rộng hệ thống. Khi mở rộng hệ thống, lượng truy cập vào các web server sẽ tăng lên, kéo theo các kết nối từ web server đến database sẽ tăng lên và khiến database quá tải và nó trở thành điểm yếu của toàn hệ thống.</p>
 
+<p><a name = "pp"></a></p>
+
 <h2 id="2-một-số-phương-pháp-scale-database-áp-dụng-mysql">2. Một số phương pháp scale database (áp dụng MySQL)</h2>
+
+<p><a name = "rep"></a></p>
 
 <h3 id="2-1-mysql-replication">2.1. MySQL Replication</h3>
 
@@ -139,10 +166,10 @@ I. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần ph�
 <li><p><strong>Data Report</strong></p>
 
 <ul>
-<li>Một số hệ thống cho phép một số người (leader, manager, người làm report, thống kê, data) truy cập vào dữ liệu trên production phục vụ cho công việc của họ. Việc chọc thẳng vào data production sẽ rất nguy hiểm vì:</li>
+<li>Một số hệ thống cho phép một số người (leader, manager, người làm report, thống kê, data) truy cập vào dữ liệu trên production phục vụ cho công việc của họ. Việc truy cập trực tiếp vào data production sẽ rất nguy hiểm vì:</li>
 <li>Vô tình chỉnh sửa làm sai lệnh dữ liệu (nếu có quyền insert, update)</li>
-<li>Vô tình thực thi các câu truy vấn tốn nhiều tài nguyên, thời gian truy vấn dài làm treo hệ thống</li>
-<li>Việc setup một máy chủ làm data report (application cũng sẽ không kết nối tới server này) làm giảm thiểu 2 rủi ro trên</li>
+<li>Vô tình thực thi các câu truy vấn tốn nhiều tài nguyên, thời gian truy vấn dài làm treo hệ thống.</li>
+<li>Việc setup một máy chủ làm data report (application cũng sẽ không kết nối tới server này) làm giảm thiểu 2 rủi ro trên.</li>
 </ul></li>
 
 <li><p><strong>Real time backup</strong></p>
@@ -156,11 +183,17 @@ I. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần ph�
 
 <h5 id="2-1-2-1-một-số-mô-hình-hoạt-động">2.1.2.1. Một số mô hình hoạt động</h5>
 
-<p><center> <img src="rep_1.png"> </center></p>
+<p align="center">
+  <img src="http://i.imgur.com/mevNr10.png">
+  <br/>
+</p>
 
 <p>Với cả hai mô hình ta luôn chỉ có 1 Master database phục vụ cho Write dữ liệu, có thể có một hoặc nhiều Slave database. Tùy từng mô hình ta có thể cấu hình mỗi web node connect vào một Slave DB tương ứng hoặc có thể dùng một LB đặt trước cụm Slave để LB tự động phân phối connection vào từng Slave DB theo thuật toán của LB.</p>
 
-<p><center> <img src="rep_2.png"> </center></p>
+<p align="center">
+  <img src="http://i.imgur.com/etkJXxd.png">
+  <br/>
+</p>
 
 <h5 id="2-1-2-2-cách-thức-hoạt-động">2.1.2.2. Cách thức hoạt động</h5>
 
@@ -179,7 +212,11 @@ I. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần ph�
 <li>Đồng thời trên Slave sẽ mở một SQL_Thread, SQL_Thread có nhiệm vụ đọc các event từ relaylog và apply các event đó vào Slave =&gt; quá trình replication hoàn thành.</li>
 </ul>
 
+<p><a name = "shard"></a></p>
+
 <h3 id="2-2-shard-mysql">2.2. Shard MySQL</h3>
+
+<p><center> <img src="https://s3-us-west-1.amazonaws.com/morpheus-staging/system/spud_media/188/original/tables1.jpg?1414453819"> </center></p>
 
 <p>Sharding là một tiến trình lưu giữ các bản ghi dữ liệu qua nhiều thiết bị để đáp ứng yêu cầu về sự gia tăng dữ liệu. Khi kích cỡ của dữ liệu tăng lên, một thiết bị đơn ( 1 database hay 1 bảng) không thể đủ để lưu giữ dữ liệu. Sharding giải quyết vấn đề này với việc mở rộng phạm vi theo bề ngang (horizontal scaling). Với Sharding, bạn bổ sung thêm nhiều thiết bị để hỗ trợ cho việc gia tăng dữ liệu và các yêu cầu của các hoạt động đọc và ghi.</p>
 
@@ -187,47 +224,161 @@ I. CAP Trong bối cảnh công nghệ hiện nay, hệ thống đang cần ph�
 
 <p>Ví dụ:</p>
 
-<p><strong>Cách Pinterest scale MySQL của họ</strong></p>
+<h4 id="cách-pinterest-scale-mysql-của-họ"><strong>Cách Pinterest scale MySQL của họ</strong></h4>
 
-<p>a. Why?</p>
+<p>Bài viết được lược dịch từ <a href="https://medium.com/@Pinterest_Engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f">Sharding Pinterest: How we scaled our MySQL fleet</a> (viết từ 17/8/2015) và tham khảo từ bài <a href="https://kipalog.com/posts/Pinterest-da-thuc-hien-scaled-MySQL-cua-ho-nhu-the-nao">Pinterest đã thực hiện scaled MySQL của họ như thế nào</a> (viết từ 22/3/2017).</p>
 
-<p>Trước thời điểm tiến hành &ldquo;cải tổ&rdquo;, Pinterest có:</p>
+<h5 id="a-intro">a. Intro</h5>
 
-<ul>
-<li>Hơn 50 tỷ pin được pin vào khoảng 1 tỷ board (mỗi user có nhiều boards, mỗi board có nhiều pins), và có nhiều thông tin râu ria như repin, like pin&hellip;</li>
-<li>Họ đã dùng một số công nghệ NoSQL, và tất nhiên cả mô hình master-slave kinh điển nữa, nhưng tất cả vẫn ko đáp ứng đủ với lượng dữ liệu trên. Cái thì break, cái thì lỗi.</li>
-</ul>
+<blockquote>
+<p>“Shard. Or do not shard. There is no try.”  —  Yoda</p>
+</blockquote>
 
-<p>Vì vậy họ phải nghĩ tới 1 phương án mới, với các tiêu chí sau:</p>
+<p>&ldquo;Pinterest là công cụ khám phá dành cho tất cả những gì chúng ta hứng thú&rdquo;. Do đó, dữ liệu của Pinterest là vô hạn với cả triệu chủ đề, từ những bức hình giúp thư giãn đầu óc, hình đồ ăn, hình socola phủ dâu tây, hình Star Trek quotes,&hellip; &ldquo;Nhìn từ góc độ dữ liệu, Pinterest là biểu đồ lớn nhất mô tả sự quan tâm của con người trên thế giới&rdquo;. Không chỉ xem hình hoặc video, user của Pin (gọi tắt là Piner) có thể thực hiện các hoạt động như follow, pin (save), share,&hellip; Đã có khoảng 50 tỷ Pins được lưu bởi Piner trong khoảng 1 tỷ boads (1 Piner có nhiều board, mỗi board có nhiều pins).</p>
 
-<ul>
-<li>Hệ thống phải ổn định, dễ vận hành, và dễ scale.
-Mọi thông tin mà Pinner (có thể hiểu là user) tạo ra phải đảm bảo có thể được accesss mọi lúc.</li>
-<li>Support việc query N pins trên một board đảm bảo theo 1 thứ tự cho trước (theo thời gian tạo pin hoặc theo 1 tiêu chí mà user đề ra)</li>
-<li>Nếu phải update, thì việc update phải là đơn giản nhất có thể.</li>
-</ul>
+<h5 id="b-why-tại-sao-cần-scale-database">b. Why: Tại sao cần scale database?</h5>
 
-<p>Một số suy luận và định hướng mà họ nhận ra khi tiến hành sharding:</p>
+<p>Câu chuyện bắt đầu khi hệ thống gặp vấn đề. Vào năm 2011, Pinterest phát triển nhanh và mạnh mẽ với số lượng Piner tăng đột biến. Lượng truy cập ngày càng tăng, hệ thống giảm dần khả năng tải trọng với lượng dữ liệu ngày một nhiều. Khoảng tháng <sup>9</sup>&frasl;<sub>2011</sub>, hệ thống gần như sập hoàn toàn cho dù đã sử dụng kỹ thuật NoSQL cũng như MySQL slave. Chỉ còn cách tái thiết kế cấu trúc cho toàn bộ hệ thống. Và lúc này, đội ngũ dev của Pinterest phải thay đổi góc nhìn về yêu cầu của hệ thống, từ đó thay đổi toàn bộ cấu trúc và xây dựng nền tảng mới.</p>
+
+<h5 id="c-yêu-cầu-của-hệ-thống">c. Yêu cầu của hệ thống</h5>
+
+<p>Các yêu cầu đặt ra cho hệ thống lúc này là:</p>
 
 <ul>
-<li>Một khi đã shard, họ sẽ ko thể sử dụng joins, foreign keys, hoặc index một cách global được. (Vì data đã được chia thành các &ldquo;cục&rdquo; nhỏ, isolate với nhau). Tất nhiên, họ vẫn có thể sử dụng các chức năng này với data cục bộ.</li>
-<li>Load balancing vẫn là cần thiết sau khi shard. Không để trường hợp node này quá đầy, node kia lại ko có gì. Những nodes cần có tính ổn định cao.</li>
-<li>Một khi đã shard, thì ko sờ vào data ở slave nữa. Mọi action read/write đều tiến hành trên master hết.</li>
-<li>Cần 1 giải thuật đơn giản khi tạo UUID cho tất cả các records của họ.
-Và họ quyết định sharding hệ thống MySQL theo cách của họ như dưới đây.</li>
+<li>Ổn định, hoạt động nhanh, dễ scale.</li>
+<li>Mọi thông tin mà Piner tạo ra phải được đảm bảo tính khả dụng.</li>
+<li>Khi query N pins trên board thì đảm bảo thứ tự trước sau.</li>
+<li>Update đơn giản nhất có thể.</li>
 </ul>
 
-<p>b. How?</p>
+<h5 id="d-triết-lý-thiết-kế">d. Triết lý thiết kế</h5>
 
-<p>// Tại sao họ lại chọn MySQL mà ko phải nền tảng khác? Anh kỹ sư có nói trong bài viết là: <strong>Đừng đú theo công nghệ làm gì, hãy cứ right tool for right job</strong> :D</p>
+<p>Một khi đã mở rộng cơ sở dữ liệu, chúng ta không thể sử dụng phép join, cài đặt khóa ngoại hay index cho toàn bộ CSDL nữa mà chỉ có thể dùng cho các CSDL con.</p>
 
-<p>Đầu tiên, họ bắt đầu với 8 con EC2, mỗi con EC2 (chạy một instance MySQL) lại có 1 con EC2 khác đi kèm, tạo thành 1 cặp với cấu hình master-master (ko phải là master-slave nữa), nhằm mục đích con master ko bị mất dữ liệu ngay cả khi nó bị tèo.</p>
+<p>Đồng thời, load balancing cũng cần được đảm bảo. Việc di chuyển data lung tung, nhất là chuyển từng mục một rất dễ gây ra lỗi và khiến hệ thống phức tạp không cần thiết. Nếu nhất định phải di chuyển dữ liệu thì tốt nhất nên chuyển toàn bộ note ảo sang note vật lý.</p>
 
-<p>// Nếu con master1 bị tèo, thì lập tức con đi kèm được cho lên làm master luôn. Sau khi con master1 khôi phục thì vai diễn lại đổi thành master1 làm backup cho con đi kèm, cứ như vậy &hellip;</p>
+<h5 id="e-thực-hành">e. Thực hành</h5>
+
+<p>Hệ thống sau khi xây dụng cần phải thỏa mãn các tiêu chí đã đề ra, đảm bảo perfoming tốt và dễ dàng sửa chữa. Nói cách khác là nó đừng có dở tệ, vậy nên team Pinterest đã chọn một công nghệ &ldquo;chín&rdquo; như chính nền tảng CSDL mà họ sử dụng vậy, MySQL. Câu hỏi đặt ra ở đây là, tại sao lại sử dụng một HQT CSDL xưa cũ như MySQL trong khi cách HQT mới đang lên như diều gặp gió (MongoDB, Cassandra, Membase,&hellip;). Câu trả lời chính là do những HQT mới được cập nhật nhiều tính năng (như auto-scaling) khó có khả năng phát triển về lâu về dài và dễ crash với yêu cầu cao.</p>
+
+<p>Bên cạnh đó, tác giả có nói:</p>
+
+<pre><code>Tui vẫn thường khuyên mọi người nên khởi đầu mà tránh dùng các công cụ quá mới mẻ và tích hợp nhiều tính năng. Hãy cố gắng chỉ dùng MySQL thôi, tin tui đi, tui có kinh nghiệm đau thương về vụ này đó.
+</code></pre>
+
+<ul>
+<li>Cấu hình được sử dụng là master-master, bắt đàu với 8 servers EC2, mỗi server EC2 chạy trên 1 instance MySQl và có 1 EC2 đi kèm, nhằm tránh trường hợp lỗi hệ thống khi có 1 server bị sập. Ví dụ, server 1A và 1B là 1 cặp master-master, lúc đầu 1A là master chính, 1B support cho 1A. Khi 1A die, 1B đảo chính, lên làm master. Khi 1A quay lại, nó mất ngôi và trở thành support cho 1B.</li>
+</ul>
+
+<p><center> <img src="https://cdn-images-1.medium.com/max/1600/0*pImQYoxO9l9J3LG8.png"> </center></p>
+
+<ul>
+<li>Mọi thao tác read/write chỉ tác động lên master. Mỗi server EC2 có thể chứa nhiều dữ liệu:</li>
+</ul>
+
+<p><center> <img src="https://cdn-images-1.medium.com/max/1600/0*dB5aSiZrInFvbefe.png"> </center></p>
+
+<p>Hãy chú ý rằng mỗi database được đặt tên độc nhất vì chúng là một phần của dữ liệu chính. Họ đã quyết định rằng, một khi chia dữ liệu vào một shard, nó sẽ ở đó vĩnh viễn, không bao giờ bị chuyển đi nơi khác.</p>
+
+<ul>
+<li>Họ có một bảng lưu thông tin về nơi lưu trữ các shard trên ZooKeepala</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="o">[{</span><span class="err">“</span><span class="kt">range</span><span class="err">”</span><span class="kt">:</span>     <span class="o">(</span><span class="err">0</span>,<span class="err">511</span><span class="o">)</span>, <span class="err">“</span><span class="kt">master</span><span class="err">”</span><span class="kt">:</span> <span class="err">“</span><span class="kt">MySQL001A</span><span class="err">”</span>, <span class="err">“</span><span class="kt">slave</span><span class="err">”</span><span class="kt">:</span> <span class="err">“</span><span class="kt">MySQL001B</span><span class="err">”</span><span class="o">}</span>,
+ <span class="o">{</span><span class="err">“</span><span class="kt">range</span><span class="err">”</span><span class="kt">:</span> <span class="o">(</span><span class="err">512</span>, <span class="err">1023</span><span class="o">)</span>, <span class="err">“</span><span class="kt">master</span><span class="err">”</span><span class="kt">:</span> <span class="err">“</span><span class="kt">MySQL002A</span><span class="err">”</span>, <span class="err">“</span><span class="kt">slave</span><span class="err">”</span><span class="kt">:</span> <span class="err">“</span><span class="kt">MySQL002B</span><span class="err">”</span><span class="o">}</span>,
+    <span class="kt">...</span>
+ <span class="o">{</span><span class="err">“</span><span class="kt">range</span><span class="err">”</span><span class="kt">:</span> <span class="o">(</span><span class="err">3584</span>, <span class="err">4095</span><span class="o">)</span>, <span class="err">“</span><span class="kt">master</span><span class="err">”</span><span class="kt">:</span> <span class="err">“</span><span class="kt">MySQL008A</span><span class="err">”</span>, <span class="err">“</span><span class="kt">slave</span><span class="err">”</span><span class="kt">:</span> <span class="err">“</span><span class="kt">MySQL008B</span><span class="err">”</span><span class="o">}]</span></code></pre></div>
+<p>// <em><code>(0,511)</code> tương ứng <code>db00000 to db00511</code></em></p>
+
+<ul>
+<li>Tạo universally unique IDs (UUID) cho mọi project để có thể phân phối data được viết vào các shard một cách chính xác và balance nhất.
+
+<ul>
+<li>Họ tạo UUID là 1 số 64 bit, dùng cho mọi query từ bên ngoài vào, có cấu trúc:
+<br /></li>
+</ul></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala">  <span class="nc">UUID</span> <span class="k">=</span> <span class="o">(</span><span class="n">shard</span> <span class="nc">ID</span> <span class="o">&lt;&lt;</span> <span class="mi">46</span><span class="o">)</span> <span class="o">|</span> <span class="o">(</span><span class="k">type</span> <span class="kt">ID</span> <span class="kt">&lt;&lt;</span> <span class="err">36</span><span class="o">)</span> <span class="o">|</span> <span class="o">(</span><span class="n">local</span> <span class="nc">ID</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="o">)</span></code></pre></div>
+<p>Với:
+* <code>shard ID:</code> là 1 số 16bit, có vai trò là ID của shard.
+* <code>type ID:</code> là 1 số 10bit, có vai trò chỉ ra type củaobject. Ví dụ nếu type ID = 1 có nghĩa object type là Pin, type ID = 2 ứng với object type là Board chẳng hạn.
+* <code>local ID:</code> là 1 số 36 bit, có vai trò là ID của records bên trong shard, có giá trị auto increment.</p>
+
+<p>Từ công thức bên trên, có thể thấy UUID được tạo bằng cách:</p>
+<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php">(Dịch trái shard ID 46 bit) bitwise OR (Dịch trái type ID 36 bit) bitwise OR (Dịch trái local ID 0 bit)</code></pre></div>
+<p>Ví dụ với URL: <a href="https://www.pinterest.com/pin/241294492511762325/">https://www.pinterest.com/pin/241294492511762325/</a>, thì UUID nhận được là 241294492511762325. Tiến hành decompose UUID theo cách sau:</p>
+<div class="highlight"><pre class="chroma"><code class="language-scala" data-lang="scala"><span class="nc">Shard</span> <span class="nc">ID</span> <span class="k">=</span> <span class="o">(</span><span class="mi">241294492511762325</span> <span class="o">&gt;&gt;</span> <span class="mi">46</span><span class="o">)</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span> <span class="k">=</span> <span class="mi">3429</span>
+<span class="nc">Type</span> <span class="nc">ID</span>  <span class="k">=</span> <span class="o">(</span><span class="mi">241294492511762325</span> <span class="o">&gt;&gt;</span> <span class="mi">36</span><span class="o">)</span> <span class="o">&amp;</span> <span class="mh">0x3FF</span> <span class="k">=</span> <span class="mi">1</span>  <span class="c1">//type Pin -&gt; query vào table pins
+</span><span class="c1"></span><span class="nc">Local</span> <span class="nc">ID</span> <span class="k">=</span> <span class="o">(</span><span class="mi">241294492511762325</span> <span class="o">&gt;&gt;</span>  <span class="mi">0</span><span class="o">)</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFFF</span> <span class="k">=</span> <span class="mi">7075733</span></code></pre></div>
+<p>Từ công thức trên, có thể thấy được:</p>
+
+<ul>
+<li><code>Shard ID</code> được decompose từ việc dịch phải 46bit UUID, sau đó bitwise AND với 0xFFFF (hay là 0b1111111111111111). Nghĩa là cắt đúng vị trí của Shard ID được dịch trái ở công thức tạo UUID bên trên. Trong trường hợp này thì việc bitwise AND với 0xFFFF là hơi thừa. Tuy nhiên nó lại có ích nếu như Shard ID ko còn đứng ở phía bên phải nhất của 64bit UUID nữa.</li>
+<li><code>Type ID</code> và <code>Local ID</code> được decompose tương tự, và cần phải bitwise AND tương ứng với 1 số 10bit và 1 số 36bit toàn 1. Như vậy là mọi thông tin cần thiết đã được decompose một cách toàn vẹn, mà lại còn nhanh nữa chứ. Tính toán trên bit mà.</li>
+</ul>
+
+<p>Sau khi đã có đầy đủ thông tin, chỉ việc query:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">conn</span> <span class="o">=</span> <span class="n">MySQLdb</span><span class="p">.</span><span class="k">connect</span><span class="p">(</span><span class="k">host</span> <span class="o">=</span> <span class="err">”</span><span class="n">MySQL007A</span><span class="err">”</span><span class="p">)</span>
+<span class="n">conn</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="err">“</span><span class="k">SELECT</span> <span class="k">data</span> <span class="k">FROM</span> <span class="n">db03429</span><span class="p">.</span><span class="n">pins</span> <span class="k">where</span> <span class="n">local_id</span> <span class="o">=</span> <span class="mi">7075733</span><span class="err">”</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="o">//</span> <span class="nx">Host</span> <span class="nx">MySQL007A</span> <span class="nx">được</span> <span class="nx">nhặt</span> <span class="nx">ra</span> <span class="nx">từ</span> <span class="nx">shard</span> <span class="nx">ID</span> <span class="mi">3429</span><span class="p">,</span> <span class="nx">có</span> <span class="k">range</span> <span class="nx">nằm</span> <span class="nx">trong</span> <span class="p">{</span><span class="err">“</span><span class="k">range</span><span class="err">”</span><span class="p">:</span> <span class="p">(</span><span class="mi">3072</span><span class="p">,</span> <span class="mi">3583</span><span class="p">),</span> <span class="err">“</span><span class="nx">master</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="nx">MySQL007A</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">slave</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="nx">MySQL007B</span><span class="err">”</span><span class="p">},,</span> <span class="nx">nên</span> <span class="nx">nó</span> <span class="nx">chọn</span> <span class="nx">host</span> <span class="nx">MySQL007A</span> <span class="nx">để</span> <span class="nx">query</span> <span class="nx">thôi</span><span class="p">.</span></code></pre></div>
+<h5 id="f-cấu-trúc-bảng">f. Cấu trúc bảng</h5>
+
+<p>Với lượng dữ liệu lớn và khó phân loại, Pinterest liệu có phải xây dựng 1 CSDL lớn và đồ sộ với khoảng 15-20 thuộc tính không?</p>
+
+<p>Câu trả lời là không. Ngược lại là khác. Cấu trúc bảng của Pinterest chỉ gồm:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">pins</span> <span class="p">(</span>
+  <span class="n">local_id</span> <span class="nb">INT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="k">data</span> <span class="nb">TEXT</span><span class="p">,</span>
+  <span class="n">ts</span> <span class="k">TIMESTAMP</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span>
+<span class="p">)</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span></code></pre></div>
+<p>Ví dụ, một đối tượng Pin sẽ trông như thế này:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="p">{</span><span class="err">“</span><span class="n">details</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="n">New</span> <span class="n">Star</span> <span class="n">Wars</span> <span class="n">character</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="n">link</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">webpage</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">asdf</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="n">user_id</span><span class="err">”</span><span class="p">:</span> <span class="mi">241294629943640797</span><span class="p">,</span> <span class="err">“</span><span class="n">board_id</span><span class="err">”</span><span class="p">:</span> <span class="mi">241294561224164665</span><span class="p">,</span> <span class="err">…</span><span class="p">}</span></code></pre></div>
+<p>Tại sao? Vì giả sử nếu phải thêm 1 column mới cho 1 table theo cách tiếp cận cũ, thì việc alter table sẽ rất nặng (do phải alter cho tất cả các table tương ứng của các shard). Tuy nhiên với cách làm này, thì khỏi cần alter gì cả, chỉ cần khai báo ở tầng app giá trị default cho column mới mỗi khi muốn đọc ra thôi. Pinterest hơn 3 năm rồi (tính tới thời điểm bài gốc được đăng) chưa từng phải alter table.</p>
+
+<ul>
+<li>Khi insert 1 record mới, họ chỉ định ghi nó vào shard ID nào, type ID là gì. Sau khi record được insert rồi, nó sẽ trả về local ID, lúc này sẽ kết hợp với Shard ID và Type ID để cho ra UUID theo cách bên trên. Quá lợi hại.</li>
+</ul>
 
 <p><a name = "task_message"></a></p>
 
-<h2 id="4-task-queue-và-message-queue">4. Task queue và Message queue</h2>
+<h1 id="iv-task-queue-và-message-queue">IV. Task queue và Message queue</h1>
+
+<p><a name = "mess"></a></p>
+
+<h2 id="1-message-queue">1. Message queue</h2>
+
+<p>Hàng đợi thông điệp nhận, giữ và gửi tin nhắn. Nếu một tác vụ cần thời gian lớn để thực hiện nội tuyến, bạn có thể dùng hàng đợi thông điệp với luông công việc như sau:</p>
+
+<ul>
+<li>Phần mềm đăng một công việc lên hàng đợi, gửi thông báo tới những nhân viên có liên quan đến công việc đó.</li>
+<li>Nhân viên lấy công việc từ hàng đợi, thực hiện nó, sau đó đánh dấu công việc thành đã hoàn thành.</li>
+</ul>
+
+<p>Khi đó, người dùng sẽ không bị block và công việc thì vẫn chạy ngầm ở dưới nền. Trong quá trình đó, hệ thống cho phép client thực hiện một vài hành động nhỏ để làm như tác vụ đó đã hoàn thành. Ví dụ khi bạn đăng 1 tweet trên twitter, tweet đó có thể xuất hiện ngay trên timeline của bạn, nhưng cần một thời gian nhỏ để bài đăng đó đến được với những người follow bạn.</p>
+
+<ul>
+<li><a href="https://redis.io/">Redis</a> là một mã nguồn mở (được cấp phép BDS), lưu trữ cấu trúc dữ liệu trong bộ nhớ, được sử dụng làm cơ sở dữ liệu, bộ đệm và môi giới tin nhắn. Nó hỗ trợ các cấu trúc dữ liệu như chuỗi, băm, danh sách, bộ, bộ được sắp xếp với các truy vấn phạm vi, bitmap, hyperloglog, chỉ mục không gian địa lý với các truy vấn và luồng bán kính. Redis có thể hữu dụng như một nhà trung gian tin nhắn cỡ nhỏ nhưng thông điệp có thể bị mất.</li>
+<li><a href="https://www.rabbitmq.com/">RabbitMQ</a> là một phần mềm trung gian tin nhắn mã nguồn mở được phát triển rộng rãi. RabbitMQ rất nhẹ và dễ triển khai trên cơ sở và trên đám mây. Nó hỗ trợ nhiều giao thức nhắn tin. RabbitMQ có thể được triển khai trong các cấu hình phân tán và liên kết để đáp ứng các yêu cầu có tính sẵn sàng cao, quy mô cao. RabbitMQ phổ biến nhưng yêu cầu thiết bị của bạn phải tương thích với &ldquo;AMQP&rdquo; protocol và tự quản lý nodes của mình.</li>
+<li><a href="https://aws.amazon.com/sqs/">Amazon SQS</a> là hệ thống quản lý hàng đợi thông điệp hoàn thiện cho phép bạn tách rời và chia tỷ lệ microservice, hệ thống phân tán và ứng dụng không có máy chủ. ASQS được khuyến khích sử dụng nhưng có thể có thời gian phản hồi cao và nhiều nguy cơ thông điệp bị gửi nhiều hơn 1 lần.</li>
+</ul>
+
+<p><a name = "task"></a></p>
+
+<h2 id="2-task-queue">2. Task queue</h2>
+
+<p>Hàng đợi nhiệm vụ nhận nhiệm vụ và các dữ liệu liên quan, chạy chúng lên sau đó gửi lại kết quả. Nó hỗ trợ việc lên lịch và chạy các tính toán chuyên sâu trong nền.</p>
+
+<p><strong>Celery</strong> có hỗ trợ lên lịch và chủ yếu hỗ trợ python.</p>
+
+<p><a name = "credit"></a></p>
+
+<h1 id="v-credit">V. Credit</h1>
+
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer#message-queues">System disign Primer</a></li>
+<li><a href="https://kipalog.com/posts/Pinterest-da-thuc-hien-scaled-MySQL-cua-ho-nhu-the-nao">Pinterest đã thực hiện scaled MySQL của họ như thế nào</a></li>
+<li><a href="https://medium.com/@Pinterest_Engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f">Sharding Pinterest: How we scaled our MySQL fleet</a></li>
+<li><a href="http://bloghoctap.com/technology/web-scalability-101-database-va-microservices.html">Database và Microservices</a></li>
+<li><a href="https://kipalog.com/posts/1-so-van-de-ve-MySQL-Performance">1 số vấn đề về MySQL Performance</a></li>
+</ul>
 ]]></content>
 		</item>
 		
