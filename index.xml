@@ -61,5 +61,16 @@ Mình 21 tuổi, cái tuổi của thanh xuân, của sức sống, của tìm t
 Ai cũng có một con đường riêng cho mình. Mình đang trên đường đi tìm con đường ấy. Và blog này ghi lại hành trình bước chân vào con đường riêng dành cho chính mình. Nó có thể không hay ho, không thú vị như người khác, nhưng nó là mình.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://vzunnbii.github.io/posts/report_baitap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vzunnbii.github.io/posts/report_baitap/</guid>
+      <description>Mục lục
+ Khái niệm Loadbalancer Định nghĩa Load balancing là một thành phần quan trọng của cơ sở hạ tầng thường được sử dụng để cải thiện hiệu suất và độ tin cậy của các trang web, các ứng dụng, cơ sở dữ liệu và các dịch vụ khác bằng cách phân phối khối lượng công việc trên nhiều máy chủ.
+Một cơ sở hạ tầng web không có Load balancing có thể trông giống như sau:</description>
+    </item>
+    
   </channel>
 </rss>
